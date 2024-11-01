@@ -52,6 +52,9 @@ Received data: {'status': 'active', 'battery': 85, 'temperature': 35.2}
 
 
 2. Websocket
-   ```
-   ros2 pkg list | grep rosbridge_server
-   ```
+```
+sudo apt install ros-humble-rosbridge-server
+```
+```
+ros2 pkg list | grep rosbridge_server
+```
