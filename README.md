@@ -1,6 +1,9 @@
 HTTP - not real-time
 
 Websocket - real-time
+```
+source ~/gnss_ws/install/setup.bash
+```
 
 1. Create a virtual environment for testing HTTP
 ```
@@ -26,7 +29,10 @@ pip install pyyaml typeguard
 ```
 ```
 mkdir http
+```
+```
 cd /home/ziye/Documents/maps/env/connect/http
+```
 ```
 nano http_server_test.py
 ```
@@ -34,6 +40,7 @@ make sure the "http_message" aligned with your client. Also provide ip and port.
 ```
 ip a
 ```
+
 ```
 python http_server_test.py
 ```
