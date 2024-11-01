@@ -58,3 +58,20 @@ sudo apt install ros-humble-rosbridge-server
 ```
 ros2 pkg list | grep rosbridge_server
 ```
+```
+ros2 pkg executables rosbridge_server
+```
+```
+ls /opt/ros/humble/share/rosbridge_server/launch
+```
+```
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml
+```
+-------------
+
+```
+sudo ufw allow 9090
+```
+hostname -I # Or `ip a`
+```
+Open a new terminal
