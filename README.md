@@ -55,8 +55,15 @@ Press CTRL+C to quit
 Received data: {'status': 'active', 'battery': 85, 'temperature': 35.2}
 [client ip] - - [01/Nov/2024 13:33:29] "POST /send-data?Content-Type=application/json HTTP/1.1" 200 -
 
+For a production-grade deployment, Flask applications should run behind a WSGI server, such as:
+Gunicorn (popular with Flask and Django apps)
 
-
+```
+pip install gunicorn
+```
+```
+gunicorn -w 4 -b 0.0.0.0:5000 http_server_test:app
+```
 
 2. Websocket
 ```
