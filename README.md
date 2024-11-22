@@ -37,7 +37,8 @@ cd /home/ziye/Documents/maps/env/connect/http
 ```
 nano http_server_test.py
 ```
-make sure the "http_message" aligned with your client. Also provide ip and port.
+
+Make sure the "http_message" aligned with your client. Also provide ip and port.
 ```
 ip a
 ```
@@ -45,6 +46,7 @@ ip a
 ```
 python http_server_test.py
 ```
+
 - It should work like: (cnt) mine:~/Documents/maps/env/connect/http$ python http_server_test.py
  * Serving Flask app 'http_server_test'
  * Debug mode: off
@@ -58,7 +60,8 @@ Received data: {'status': 'active', 'battery': 85, 'temperature': 35.2}
 
 ### Test receive data from browser
 
-```pip install flask-cors
+```
+pip install flask-cors
 ```
 
 ```
