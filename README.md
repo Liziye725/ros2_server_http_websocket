@@ -57,12 +57,27 @@ Received data: {'status': 'active', 'battery': 85, 'temperature': 35.2}
 [client ip] - - [01/Nov/2024 13:33:29] "POST /send-data?Content-Type=application/json HTTP/1.1" 200 -
 
 ### Test receive data from browser
+
 ```pip install flask-cors
 ```
+
 ```
 CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type"]}})
 ```
 
+#### Security
+Allow firewall only on the port you are testing:
+```
+sudo ufw allow [port_number]
+```
+After usage:
+```
+sudo ufw enable
+```
+Check the staus:
+```
+sudo ufw status
+```
 
 
 
