@@ -4,6 +4,7 @@ Websocket - real-time
 ```
 source ~/gnss_ws/install/setup.bash
 ```
+### Test from postman
 
 1. Create a virtual environment for testing HTTP
 ```
@@ -55,10 +56,12 @@ Press CTRL+C to quit
 Received data: {'status': 'active', 'battery': 85, 'temperature': 35.2}
 [client ip] - - [01/Nov/2024 13:33:29] "POST /send-data?Content-Type=application/json HTTP/1.1" 200 -
 
-1.1 Test receive data from browser
+### Test receive data from browser
 ```pip install flask-cors
 ```
-
+```
+CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type"]}})
+```
 
 
 
