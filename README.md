@@ -3,9 +3,13 @@ HTTP - not real-time
 Websocket - real-time
 
 1.download package
+
 2.modify and build pkg
+
 3.run launch file
+
 4.ip a
+
 5.ip + port
 
 
@@ -142,16 +146,16 @@ mkdir launch
 Edit launch file and cmake file.
 
 ```
+cd ~/gnss_ws
 colcon build --packages-select turtlebot_bringup_foxglove
 ```
-
 
 Check if build successfully or not:
 ```
 ros2 pkg list 
 ```
 ```
-source ~/gnss_ws/install/local_setup.bash
+source ~/gnss_ws/install/setup.bash
 ```
 ```
 ros2 launch turtlebot_bringup_foxglove turtlebot_bringup_foxglove.launch
