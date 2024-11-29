@@ -1,6 +1,16 @@
 HTTP - not real-time
 
 Websocket - real-time
+
+1.download package
+2.modify and build pkg
+3.run launch file
+4.ip a
+5.ip + port
+
+
+
+
 ```
 source ~/gnss_ws/install/setup.bash
 ```
@@ -117,4 +127,32 @@ sudo ufw allow 9090
 ```
 hostname -I # Or `ip a`
 ```
-Open a new terminal
+
+Do not use rosbridge, use foxglove:
+
+```
+sudo apt-get install ros-humble-foxglove-bridge
+```
+```
+cd ~/gnss_ws/src
+ros2 pkg create turtlebot_bringup_foxglove
+cd turtlebot_bringup_foxglove
+mkdir launch
+```
+Edit launch file and cmake file.
+
+```
+colcon build --packages-select turtlebot_bringup_foxglove
+```
+
+
+Check if build successfully or not:
+```
+ros2 pkg list 
+```
+```
+source ~/gnss_ws/install/local_setup.bash
+```
+```
+ros2 launch turtlebot_bringup_foxglove turtlebot_bringup_foxglove.launch
+```
