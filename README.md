@@ -129,8 +129,9 @@ ros2 launch rosbridge_server rosbridge_websocket_launch.xml
 ```
 sudo ufw allow 9090
 ```
+
 hostname -I # Or `ip a`
-```
+
 
 Do not use rosbridge, use foxglove:
 
@@ -143,7 +144,8 @@ ros2 pkg create turtlebot_bringup_foxglove
 cd turtlebot_bringup_foxglove
 mkdir launch
 ```
-Edit launch file and cmake file.
+
+Edit launch, package.xml and cmake file.
 
 ```
 cd ~/gnss_ws
@@ -151,12 +153,15 @@ colcon build --packages-select turtlebot_bringup_foxglove
 ```
 
 Check if build successfully or not:
+
 ```
 ros2 pkg list 
 ```
+
 ```
 source ~/gnss_ws/install/setup.bash
 ```
+
 ```
 ros2 launch turtlebot_bringup_foxglove turtlebot_bringup_foxglove.launch
 ```
