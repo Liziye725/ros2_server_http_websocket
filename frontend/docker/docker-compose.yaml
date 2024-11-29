@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  turtlebot:
+    image: ros:humble-ros-base
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: host
+    privileged: true
+    environment:
+      - TURTLEBOT3_MODEL=waffle_pi
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash &&
+               ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py"
+
+  rectangle-server:
+    image: ros:humble-ros-base
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=0
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash &&
+               source /ros2_ws/install/setup.bash &&
+               ros2 launch turtlebot_rectangle_nav rectangle_nav_launch.py"

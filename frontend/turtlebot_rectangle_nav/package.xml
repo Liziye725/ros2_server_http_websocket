@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="2">
+  <!-- Define the package name -->
+  <name>turtlebot_rectangle_nav</name>
+
+  <!-- Define the package version -->
+  <version>0.1</version>
+
+  <!-- A brief description of the package -->
+  <description>The turtlebot_rectangle_nav package</description>
+
+  <!-- Maintainer information -->
+  <maintainer email="liziye725@gmail.com">Ziye Li</maintainer>
+
+  <!-- License information -->
+  <license>Apache 2.0</license>
+
+  <!-- Dependencies -->
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+
+  <!-- Build tool dependency -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Test dependencies -->
+  <exec_depend>ament_lint_auto</exec_depend>
+  <exec_depend>ament_lint_common</exec_depend>
+  <test_depend>launch_testing</test_depend>
+
+  <!-- Export build type for ROS 2 package -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
