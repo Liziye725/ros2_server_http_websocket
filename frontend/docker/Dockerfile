@@ -8,8 +8,12 @@ RUN apt-get update && apt-get install -y \
 
 RUN rosdep init && rosdep update
 
-COPY server_node /server_node
-WORKDIR /server_node
+
+# Set the working directory in the container
+WORKDIR /frontend
+
+# Copy the project files into the container (from the host to /frontend inside the container)
+COPY . /frontend
 
 RUN . /opt/ros/humble/setup.sh && colcon build
 
