@@ -165,3 +165,36 @@ source ~/gnss_ws/install/setup.bash
 ```
 ros2 launch turtlebot_bringup_foxglove turtlebot_bringup_foxglove.launch
 ```
+
+
+### Switch to FastAPI and Websocket
+I want to create a docker compose to simulate a robot keeps tracking and sending coordinates and also runs a server：
+1. The TurtleBot moves around a rectangle and reports coordinates.
+2. A FastAPI server and WebSocket are running in parallel to send the coordinates to the frontend.
+3. When you run docker-compose, both the server and the TurtleBot are running together.
+
+```
+frontend/
+│
+├── docker/                      # Docker-related files
+│   ├── Dockerfile                # Dockerfile for ROS 2 container
+│   ├── docker-compose.yaml       # Docker Compose configuration file
+│
+├── turtlebot_rectangle_nav/     # ROS 2 package directory
+│   ├── CMakeLists.txt            # CMake configuration
+│   ├── package.xml               # ROS 2 package metadata
+│   ├── launch/                   # ROS 2 launch files
+│   │   └── rectangle_nav_launch.py
+│   └── src/
+│       ├── __init__.py
+│       ├── main.py               # FastAPI entry point & ROS node
+│       ├── robot_nav_node.py     # TurtleBot navigation logic
+│       ├── ros_server.py         # WebSocket and FastAPI logic
+│       └── websockets.py         # WebSocket handler
+```
+
+
+```
+pip install fastapi uvicorn pydantic websockets
+```
+
