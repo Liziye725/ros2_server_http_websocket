@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>turtlebot_rectangle_nav</name>
+  <name>orobot_rectangle_nav</name>
   <version>0.0.1</version>
   <description>Package to move TurtleBot around a rectangle and communicate via WebSocket and FastAPI</description>
 
@@ -11,7 +11,7 @@
   
   <depend>rclpy</depend>
   <depend>std_msgs</depend>
-  <depend>geometry_msgs</depend>
+  <!-- <depend>geometry_msgs</depend> -->
 
   <exec_depend>fastapi</exec_depend>
   <exec_depend>uvicorn</exec_depend>
