@@ -2,9 +2,10 @@ import rclpy
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
 import asyncio
-import threading
 from websockets import WebSocketManager
-from orobot_nav_node import ORobotNavNode  # Import your ROS 2 node
+from orobot_nav_node import orobot_nav_node
+from uvicorn.config import Config
+from uvicorn.server import Server
 
 # FastAPI app setup
 app = FastAPI()
@@ -29,19 +30,22 @@ async def robot_location(websocket: WebSocket):
         print(f"Unexpected error: {e}")
         await websocket.close()
 
-# Function to start the ROS 2 node and FastAPI server in parallel using asyncio
+# Start the ROS 2 node asynchronously
 async def start_ros_node_async():
     rclpy.init()
-    node = ORobotNavNode()  # Ensure your ROS 2 node is properly imported
+    node = ORobotNavNode()  # My ROS 2 node is properly imported
     while rclpy.ok():
         rclpy.spin_once(node)
-        await asyncio.sleep(0.1)  # Avoid blocking the event loop
+        await asyncio.sleep(0.5)  # Avoid blocking the event loop
     rclpy.shutdown()
 
+# Start the FastAPI server with Uvicorn
 async def start_fastapi_server_async():
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=5001)
+    config = Config(app=app, host="0.0.0.0", port=5001, loop="asyncio")
+    server = Server(config)
+    await server.serve()
 
+# Use asyncio to manage both the ROS 2 node and FastAPI server concurrently
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     loop.create_task(start_ros_node_async())  # Start ROS 2 node in asyncio loop
