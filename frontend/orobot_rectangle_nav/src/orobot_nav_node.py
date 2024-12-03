@@ -2,7 +2,7 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-from ros_rectangle import RectangleNavigator  # Import the coordinate navigator class
+from send_rectangle_coordinate import RectangleNavigator
 
 class ORobotNavNode(Node):
     def __init__(self):
