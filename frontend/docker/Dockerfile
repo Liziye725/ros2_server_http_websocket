@@ -3,8 +3,10 @@ FROM ros:humble-ros-base
 RUN apt-get update && apt-get install -y \
     python3-colcon-common-extensions \
     python3-rosdep \
-    ros-humble-turtlebot3* \
+    ros-humble-turtlebot4* \
     && rm -rf /var/lib/apt/lists/*
+    
+RUN pip3 install fastapi uvicorn
 
 RUN rosdep init && rosdep update
 
@@ -17,4 +19,4 @@ COPY . /frontend
 
 RUN . /opt/ros/humble/setup.sh && colcon build
 
-CMD ["bash", "-c", "source /opt/ros/humble/setup.sh && bash"]
+CMD ["bash", "-c", "source /opt/ros/humble/setup.sh && bash && ros2 run turtlebot_rectangle_nav main"]
