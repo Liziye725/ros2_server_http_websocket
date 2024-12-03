@@ -1,3 +1,4 @@
+# ros_rectangle.py
 from rclpy.node import Node
 from std_msgs.msg import String
 
@@ -8,8 +9,8 @@ COORDINATES = [
     ("D", -97.28400000000000, 50.12100000000000, 0)
 ]
 
-class RectangleNavigator(Node):
-    def __init__(self, node):
+class RectangleNavigator:
+    def __init__(self, node: Node):
         self.node = node
         self.publisher = self.node.create_publisher(String, '/rectangle_coordinates', 10)
         self.current_index = 0
