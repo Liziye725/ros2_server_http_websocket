@@ -3,7 +3,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
 import asyncio
 from websockets import WebSocketManager
-from orobot_nav_node import orobot_nav_node
+from orobot_nav_node import ORobotNavNode
 from uvicorn.config import Config
 from uvicorn.server import Server
 
