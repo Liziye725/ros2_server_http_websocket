@@ -12,7 +12,7 @@ Websocket - real-time
 
 5.ip + port
 
-
+Install docker and docker compose
 
 
 ```
@@ -193,8 +193,13 @@ frontend/
 │       └── websockets.py         # WebSocket handler
 ```
 
+Open virtual env and install packages (test on local for ros 2 package) 
+```
+chmod +x ./cnt/bin/activate
+source ./cnt/bin/activate
+```
+```
+pip3 install fastapi uvicorn
+```
 
-```
-pip install fastapi uvicorn pydantic websockets
-```
 
