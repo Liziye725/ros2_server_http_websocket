@@ -16,6 +16,10 @@ WORKDIR /frontend
 # Copy the project files into the container (from the host to /frontend inside the container)
 COPY . /frontend
 
+# Expose port 5001 for FastAPI WebSocket server
+EXPOSE 5001
+
 RUN . /opt/ros/humble/setup.sh && colcon build
 
-CMD ["bash", "-c", "source /opt/ros/humble/setup.sh && bash && ros2 run turtlebot_rectangle_nav main"]
+
+CMD ["bash", "-c", "source /opt/ros/humble/setup.sh && bash && ros2 run orobot_rectangle_nav main"]
