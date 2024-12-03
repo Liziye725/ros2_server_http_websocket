@@ -5,11 +5,12 @@ services:
       context: .
       dockerfile: docker/Dockerfile
     ports:
-      - "5000:5000"  # Expose FastAPI port
-      - "9090:9090"  # Expose WebSocket port if needed
+      - "5000:5001"  # Expose FastAPI port
+      # - "9090:9090"  # Expose WebSocket port if needed
     network_mode: host
     environment:
       - DISPLAY=${DISPLAY}
       - ROS_DISTRO=humble
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw  # For GUI
+      

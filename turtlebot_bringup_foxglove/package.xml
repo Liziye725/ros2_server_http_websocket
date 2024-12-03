@@ -4,8 +4,8 @@
   <name>turtlebot_bringup_foxglove</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="liziye725@gmail.com">ziye</maintainer>
-  <license>TODO: License declaration</license>
+  <maintainer email="liziye725@gmail.com">Ziye Li</maintainer>
+  <license>Apache 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

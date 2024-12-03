@@ -1,4 +1,4 @@
-# ros_rectangle.py
+# send_rectangle_coordinate.py
 from rclpy.node import Node
 from std_msgs.msg import String
 

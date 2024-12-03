@@ -1,12 +1,12 @@
-# robot_nav_node.py
+# orobot_nav_node.py
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from ros_rectangle import RectangleNavigator  # Import the coordinate navigator class
 
-class RobotNavNode(Node):
+class ORobotNavNode(Node):
     def __init__(self):
-        super().__init__('robot_nav_node')
+        super().__init__('orobot_nav_node')
         self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
         self.timer = self.create_timer(1.0, self.timer_callback)
         self.counter = 0
@@ -35,7 +35,7 @@ class RobotNavNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = RobotNavNode()
+    node = ORobotNavNode()
     rclpy.spin(node)
     rclpy.shutdown()
 

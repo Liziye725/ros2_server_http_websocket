@@ -9,8 +9,8 @@ find_package(geometry_msgs REQUIRED)
 
 # Add Python executables
 install(PROGRAMS
-  src/ros_nav_node.py
-  src/ros_rectangle.py
+  src/orobot_nav_node.py
+  src/send_rectangle_coordinate.py
   src/websockets.py
   src/main.py
   DESTINATION lib/${PROJECT_NAME}

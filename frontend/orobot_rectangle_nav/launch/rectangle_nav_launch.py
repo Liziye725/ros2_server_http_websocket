@@ -7,9 +7,9 @@ def generate_launch_description():
     return LaunchDescription([
         # Launch the ROS 2 node
         Node(
-            package='turtlebot_rectangle_nav',  # ROS package containing robot_nav_node
-            executable='robot_nav_node',        # The executable for the ROS node
-            name='robot_nav_node',
+            package='orobot_rectangle_nav',  # ROS package containing robot_nav_node
+            executable='orobot_nav_node',        # The executable for the ROS node
+            name='orobot_nav_node',
             output='screen',
         ),
         
