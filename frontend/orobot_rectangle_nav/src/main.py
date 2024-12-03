@@ -2,7 +2,7 @@ import rclpy
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
 import asyncio
-from websockets import WebSocketManager
+from websocket_manager import WebSocketManager
 from orobot_nav_node import ORobotNavNode
 from uvicorn.config import Config
 from uvicorn.server import Server
@@ -11,10 +11,10 @@ from uvicorn.server import Server
 app = FastAPI()
 websocket_manager = WebSocketManager()
 
-# FastAPI Route to send data to ROS 2 (if needed)
+# FastAPI Route to send data to ROS 2
 @app.post("/send-data")
 async def send_data(data: dict):
-    return JSONResponse(content={"status": "success", "message": "Data received by server"})
+    return JSONResponse(content={"status": "success", "message": "Coordinates Data received by server"})
 
 # WebSocket route to track robot location
 @app.websocket("/ws/robot-location")
